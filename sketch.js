@@ -2,26 +2,44 @@ function addGridBlock() {
     const gridBlock=document.createElement('div');
     const containerBlock=document.getElementById('16by16');
     gridBlock.classList.add('grid-item');
+    gridBlock.addEventListener('mouseenter', function( event ) {
+        this.classList.add('hovered');
+    })
     containerBlock.appendChild(gridBlock);
 }
 
-function iterativeGridBlock() {
-for (let i=0; i < 16; i++) { addGridBlock(); console.log('ran!')}
+function iterativeGridBlock(x) {
+for (let i=0; i < x; i++) { addGridBlock();}
 }
 
-function hoverGridBlock (e) {
-    const containerBlock=document.getElementById('16by16');
-    console.log(e)
-}
+function clearGridBlock() {
+    let allGridBlocks=document.getElementsByClassName('grid-item');
+    Array.from(allGridBlocks).forEach((x) => { x.remove(); } )
+    }
 
-function hoverListener (e) {
-const containerBlock=document.getElementById('16by16');
-containerBlock.addEventListener('mouseenter', function (e) {
-    this.classList.add('hovered'); 
-});
+var modal = document.getElementById("requestModal");
+var btn = document.getElementById("shakeButton");
+var pxlBtn = document.getElementById("pixelButton");
+
+
+btn.onclick = function() {
+      modal.style.display = "block";
+      clearGridBlock();
+    }
+
+pxlBtn.onclick = function() {
+    var pixelRequest = document.getElementById("pixelRequest").value;
+    iterativeGridBlock(pixelRequest * pixelRequest);
+    
+    modal.style.display = "none";
 }
+    
+window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
 
 document.addEventListener('DOMContentLoaded', function () {
-iterativeGridBlock();
-hoverListener();
+iterativeGridBlock(256);
 });

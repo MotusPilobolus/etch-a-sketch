@@ -12,12 +12,24 @@
     <div class="main">
         <div class="header">
             <h1>Etch-a-sketch</h1>
-            <div class="border">
-            <div class="container" id="16by16">
-
-            </div>
+            <button id="shakeButton">Shake it!</button>
+            <div>
+                <div id="requestModal" class="modal">
+                      <div class="modal-content">
+                          <h2>Let's Play Again!</h2>
+                          <p>Enter a number of pixels for your sketch!</p>
+                          <input type="text" id="pixelRequest" name="pixelRequest">
+                          <button id="pixelButton">Submit</button>
+                      </div>
+                 </div>
             </div>
         </div>
+
+                    <p>Draw on the board below by running your mouse over it to create a new drawing!</p>
+            <div class="border">
+            <div class="container" id="16by16">
+            </div>
+            </div>      
     </div>
 </body>
 </html>
