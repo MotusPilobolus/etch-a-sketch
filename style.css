@@ -46,9 +46,7 @@ button:hover {
 }
 
 .grid-item {
-    border: 0.5px solid black;
-    height:36px;
-    width: 36px;
+    /* border: 0.5px solid black; */
     transition-duration: 0.5s;
 }
 .hovered {
